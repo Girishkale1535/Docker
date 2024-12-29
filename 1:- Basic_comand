@@ -1,0 +1,74 @@
+//Docker Installaltion and start:
+sudo yum install docker
+sudo service docker start
+sudo service docker status
+
+//Root user
+sudo su
+//pull nginx
+docker pull nginx 
+
+//Show containers(old)
+docker ps      
+docker ps -a   
+
+//Show containers(new)
+docker container ls     
+docker container ls -a      
+
+//Show images list
+docker images    
+docker image ls   
+
+ //Run command 
+ docker run
+
+//Run nginx
+docker run nginx
+//Run nginx in background 
+docker run -d -p80:80 nginx
+//Run docker in background on port 80 of ec2, port 80 of docker and give name a to container
+docker run -d -p80:80 --name myweb nginx 
+
+
+
+ //Create command:   
+ --docker create (creates container from image but the container is in stoped condition)
+
+docker create httpd
+//Start httpd
+docker start httpd
+//Create new container
+docker run -d -p80:80 --name myweb nginx 
+
+//To execute Container :
+docker exec -it (containerid/name) /bin/bash   
+
+
+//Stop container :
+docker container stop containerid/name    
+docker stop $(docker ps -a)       
+
+//Remove container
+//Remove one container
+docker rm (containerid/name)   remove one container  
+docker rm $(docker ps -aq)      (to remove all stoped container which are stoped at once)
+
+//Log 
+docker logs (containerid)
+setting used t create container
+docker inspect (containerid)     (setting used to create container)
+
+//Remove image
+//Remove one image
+docker rmi (imageid)
+//Remove one image
+docker image rm (imageid)
+//Remove all unused images
+docker image prune 
+
+//Types of Volume for Container
+--one volume can be assigned to multiple container.
+1. Host path (Bind Mount ):
+2. Named Volume :
+3. Anonymous Volume : 
